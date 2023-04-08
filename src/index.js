@@ -4,6 +4,7 @@ import {
 import Task from './task';
 import Project from './project';
 
+
 const localStorageProjectKey = 'list.projects';
 const localStorageSelectedProjectKey = 'list.selectedProjectId';
 const projects = JSON.parse(localStorage.getItem(localStorageProjectKey)) || [];
@@ -61,6 +62,16 @@ const UI = (() => {
       checkBox.type = 'checkbox';
       checkBox.name = "taskCheckBox";
       checkBox.id = "taskCheckBox";
+      checkBox.addEventListener('mouseenter', (e) => {
+        taskName.classList.add('task-done');
+        taskDesc.classList.add('task-done');
+        taskDate.classList.add('task-done');
+      });
+      checkBox.addEventListener('mouseleave', () => {
+        taskName.classList.remove('task-done');
+        taskDesc.classList.remove('task-done');
+        taskDate.classList.remove('task-done');
+      });
       thisTask.classList.add('task-element');
       const taskName = document.createElement('p');
       taskName.textContent = task.name;
@@ -140,6 +151,7 @@ const UI = (() => {
       projectElement.dataset.id = project.id;
       projectElement.classList.add('project-element');
       const removeBtn = document.createElement('button');
+      removeBtn.classList.add('remove-btn');
       removeBtn.textContent = 'x';
       projectElement.textContent = project.name;
       projectElement.appendChild(removeBtn);
@@ -178,6 +190,11 @@ const UI = (() => {
     createTask, createProject, saveAndRender, createDefaultProjects };
 })();
 const formHandler = (() => {
+  const setInputDate = () => {
+    const dateInput = document.getElementById('date');
+    const today = new Date();
+    dateInput.value = today.toISOString().substring(0, 10);
+  };
   const taskModal = document.getElementById('taskModal');
   const cancelTask = document.getElementById('cancelTask');
   const taskForm = document.getElementById('taskForm');
@@ -189,6 +206,8 @@ const formHandler = (() => {
   addTask.addEventListener('click', (e) => {
     e.target.style.display = 'none';
     taskModal.style.display = 'inline';
+    setInputDate();
+    document.getElementById('task').select();
   });
   taskForm.addEventListener('submit', (e) => {
     e.preventDefault();

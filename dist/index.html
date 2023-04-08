@@ -45,11 +45,12 @@
           placeholder="Task name"
           required
           >
-          <textarea 
+          <input 
+          type="text"
           class="desc-input"
           id="desc"
           name="desc"
-          placeholder="Description"></textarea>
+          placeholder="Description">
           <input 
           type="date"
           class="date-input"
@@ -57,11 +58,7 @@
           name="date"
           >
           <div>
-            <select name="task-project" class="task-project" id="taskProject">
-              <option value="inbox">Inbox</option>
-              <option value="work">Work</option>
-            </select>
-            <button type="reset" class="cancelBtn" id="cancelTask">Cancel</button>
+            <button type="reset" class="cancel-btn" id="cancelTask">Cancel</button>
             <button type="submit" class="submit-btn" id="submitTask">Add task</button>
           </form>
       </div>

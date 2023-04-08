@@ -46,6 +46,14 @@
 .nav-bar h2 {
   margin-bottom: 1rem;
 }
+.remove-btn {
+  background: none;
+  border: none;
+  font-weight: lighter;
+}
+.remove-btn:hover {
+  font-weight: bold;
+}
 .project-modal {
   display: none;
   position: fixed;
@@ -57,10 +65,12 @@
 .project-input {
   background:none ;
   padding-left: 1rem;
+  padding-bottom: 5px;
   border: none;
   border-bottom: 1px solid #d4d4d8;
   font-weight: lighter;
   font-size: 18px;
+  width: 100%;
 }
 .project-input:hover {
   border-color: black;
@@ -80,6 +90,7 @@
 .project-input:focus::placeholder {
   color: transparent;
 }
+
 .main {
   height: 100%;
   grid-column: 2/3;
@@ -101,6 +112,9 @@
   padding-bottom: 1rem;
   border-bottom: 1px solid #d4d4d8;
 }
+#taskCheckBox:hover {
+  background-color: #d4d4d8;
+}
 .task-element > p {
   padding-left: 1.5rem;
   color: #4b5563;
@@ -116,7 +130,9 @@
   display: flex;
   gap: .5rem
 }
-
+.task-done {
+  text-decoration: line-through;
+}
 .task-element input {
   margin-right: auto;
   display: inline;
@@ -136,12 +152,50 @@
 
 .task-form {
   width: 40%;
-  background-color: #1f2937;
+  background-color: #fafafa;
   border-radius: 10px;
+  border: 1px solid #d4d4d8;
   padding: 1rem;
   display: flex;
   flex-direction: column;
 }
+.task-form:focus-within {
+  border-color: #4b5563;
+}
+.task-input, .desc-input {
+  background-color: #fafafa;
+  border: none;
+  padding-bottom: .5rem;
+}
+.task-input, .desc-input:focus {
+  outline: none;
+  border: none;
+}
+.desc-input {
+  font-size: 16px;
+  font-weight: 200px;
+}
+
+.date-input {
+  background-color: #fafafa;
+  border: none;
+  width: 120px;
+  font-size: 16px;
+  color: gray;
+}
+.date-input::-webkit-input-placeholder {
+  font-weight: lighter;
+}
+.date-input:focus {
+  outline: none;
+  border: none;
+}
+.date-input:hover {
+  background-color: #e5e5e5;
+  border-radius: 5px;
+
+}
+
 .task-modal {
   display: none;
 }
@@ -164,8 +218,36 @@
   background: none;
   margin-top: 1rem;
   font-weight: 200;
+  padding: .3rem .5rem .3rem .5rem;
+}
+.add-task:hover {
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  transform: translateY(1px);
 }
 .add-task::first-letter {
   font-weight: bold;
   align-self:center ;
+}
+.cancel-btn, .submit-btn {
+  border: none;
+  margin-right: .5rem;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: .3rem;
+}
+.cancel-btn {
+  color: #4b5563;
+}
+.cancel-btn:hover{
+  background-color: #d4d4d8;
+  color: #202020;
+}
+.submit-btn {
+  background-color: rgb(82, 80, 80);
+  color: #e5e5e5 ;
+}
+.submit-btn:hover {
+  background-color: #404040;
+  color: #fafafa;
 }
