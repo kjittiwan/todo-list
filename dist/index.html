@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="content" id="content">
+    <div class="header" id="header">
+      <h1>Todo List</h1>
+    </div>
+    <div class="nav-bar" id="navBar">
+      <ul class="default-project-list" id="defaultProjectList">
+      </ul>
+
+      <div class="user-projects">
+        <h2>Projects</h2>
+        <ul class="project-list" id="projectList">
+        </ul>
+        <form action="" class="project-form" id="projectForm">
+          <input 
+          type="text"
+          class="project-input"
+          id="projectName"
+          name="projectName"
+          placeholder="+ Add project"
+          >
+        </form>
+      </div>
+    </div>
+    <div class="main" id="main">
+      <h2 class="project-title" id="projectTitle">Inbox</h2>
+      <div class="task-container" id="taskContainer"></div>
+      <button class="add-task" id="addTask">+ Add task</button>
+      <div class="task-modal" id="taskModal">
+        <form action="" class="task-form" id="taskForm">
+          <input 
+          type="text"
+          class="task-input"
+          id="task"
+          name="task"
+          placeholder="Task name"
+          required
+          >
+          <textarea 
+          class="desc-input"
+          id="desc"
+          name="desc"
+          placeholder="Description"></textarea>
+          <input 
+          type="date"
+          class="date-input"
+          id="date"
+          name="date"
+          >
+          <div>
+            <select name="task-project" class="task-project" id="taskProject">
+              <option value="inbox">Inbox</option>
+              <option value="work">Work</option>
+            </select>
+            <button type="reset" class="cancelBtn" id="cancelTask">Cancel</button>
+            <button type="submit" class="submit-btn" id="submitTask">Add task</button>
+          </form>
+      </div>
+      
+    </div>
+
+    
+  </div>
+
+<script src="main.js"></script>  
+</body>
+</html>
